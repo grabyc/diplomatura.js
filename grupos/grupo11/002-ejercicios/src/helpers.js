@@ -32,5 +32,5 @@ import { database } from "./basededatos";
 
 const lastIdElementFromTable = (table) =>{
     let array = database[table];
-    return [array.length].id;
+    return array[array.length-1].id;
 } 

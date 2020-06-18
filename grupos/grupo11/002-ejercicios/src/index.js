@@ -53,7 +53,7 @@ const helpers = {
 const insertProvince = (provinceName) => {
     
     database.provincias.push({
-        id: helpers.lastIdElementFromTable()+1,
+        id: helpers.lastIdElementFromTable('provincias')+1,
         nombre: provinceName
     })
 }
@@ -66,12 +66,26 @@ const insertTableName = (table, name) => {
     })
 }
 
-// 10) Implementar una función que reciba el id de una materia y devuelva la materia cno los ids de universidad y profesores resueltos a sus nombres
+//10) 
 
-const getSubjectDataById = (idSubject) =>{
+console.log('------------------------------------------------------');
+console.log('Inc 10) Info de materia');
 
-}
+const getSubjectDetails = idSubject => {
+    const subject = helpers.getSubjectById(idSubject);
+    const proffesorsNames = [];
+    
+    subject.profesores.forEach( id => 
+        proffesorsNames.push(helpers.getProffesorById(id).nombre)
+    );
 
+    return {
+        id: idSubject,
+        nombre: subject.nombre,
+        profesores: proffesorsNames,
+        universidad: helpers.getUniversityById(subject.universidad).nombre
+    } 
+};
 // 11) Implementar una función que muestre en consola la información para todos los alumnos de la siguiente manera:
 // NOTAS DE ALUMNOS
 // ----------------
@@ -81,14 +95,29 @@ const getSubjectDataById = (idSubject) =>{
 // ALUMNO 2
 // ...
 
-const getStudentsDetails = () => {
-    console.log(
-        "NOTAS DE ALUMNOS \n",
-        "---------------- \n",
 
-        
-    )
-}
+
+
+const getSubjectDetailsFromStudent = () => {
+    const students = database.alumnos;
+    const califications = database.calificaciones;
+    console.log("NOTAS DE ALUMNOS");
+    console.log("----------------");
+    
+    students.forEach(student => {
+        console.log("\n" + student.nombre.toUpperCase());
+
+        califications
+            .filter(c => c.alumno === student.id)
+            .map((calification, subjectCalification) => {
+                console.log(calification)
+                console.log(getSubjectById(calification.materia).nombre + " : " + subjectCalification);
+                }
+            )
+        }
+    );
+};
+
 
 // 12) Implementar una función que guarde la calificación de un alumno y una materia
 //     La función recibirá: 'nombre del alumno', 'nombre de la materia', 'nota'
@@ -123,12 +152,23 @@ const insertSubject = (subjectName) =>{
 
 
 console.log(
-  "Universidad by id: ", getUniversityById(1),
-    "Profesor by id: ", getProffesorById(1),
-    "Materia by id: ", getSubjectById(1),
-    "Generico ", getElementFromTableById('materias',1),
-    "Helpers",helpers.getProffesorById(1),
-
+    "-------------------------------------------------------------------------------------  \n",
+   "Universidad by id: ", getUniversityById(1),"\n \n",
+    "Profesor by id: ", getProffesorById(1),"\n \n",
+    "Materia by id: ", getSubjectById(1),"\n \n",
+    "-------------------------------------------------------------------------------------  \n",
+    "Generico, obtengo materia con id 1: ", getElementFromTableById('materias',1),"\n \n",
+    "------------------------------------------------------------------------------------- \n",
+    "Helpers getProfesor: ",helpers.getProffesorById(1), "\n \n",
+    "------------------------------------------------------------------------------------- \n",
+    "Helpers getLastId de materias, debe dar 5: ", helpers.lastIdElementFromTable('materias'), "\n \n",
+    "-------------------------------------------------------------------------------------  \n",
+    "Insertar provincia Catamarca: ", insertProvince('Catamarca'), ". Inserto bien, la busco: ",database.provincias[2],"\n \n",
+    "------------------------------------------------------------------------------------- \n",
+   
+   "punto 10) detalles de materia id 1 ",getSubjectDetails(1),"\n \n",
+   "------------------------------------------------------------------------------------- \n",
+   "punto 11 mega string", getSubjectDetailsFromStudent()
 
 )
 
