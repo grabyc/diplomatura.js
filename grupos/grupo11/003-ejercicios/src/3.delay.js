@@ -48,13 +48,13 @@
 
 
 
-export const run  = () =>{
-  /*   console.log(1);
-    delay('Terminó 1', 1000);
-    console.log(2);
-    delay('Terminó 2', 1000);
-    console.log(3);
-    delay('Terminó 3', 1000); */
+export const run = () => {
+    /*   console.log(1);
+      delay('Terminó 1', 1000);
+      console.log(2);
+      delay('Terminó 2', 1000);
+      console.log(3);
+      delay('Terminó 3', 1000); */
     console.log(1);
     delay('Terminó 1', 3000);
     console.log(2);
@@ -64,8 +64,7 @@ export const run  = () =>{
 }
 
 
-export const delay  = (message, delayInMilliseconds) =>{
-    setTimeout(() =>  {console.log(message)}, delayInMilliseconds);
+
+export const delay = (message, delayInMilliseconds) => {
+    setTimeout(() => { console.log(message) }, delayInMilliseconds);
 }
-
-
