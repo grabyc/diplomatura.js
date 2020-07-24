@@ -1,0 +1,73 @@
+body {
+    font-family: sans-serif;
+    margin: 2%;
+    background-image: url('https://s03.s3c.es/imag/_v0/770x419/0/0/c/Frutas-y-verduras-dentro-de-una-bolsa-de-papel-iStock.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 34px;
+    color: black;
+}
+
+#lista {
+    color: red;
+}
+
+.eliminar {
+    margin-left: 10px;
+    color: white/*  #a4430b */
+    ;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 6px;
+    border-radius: 10px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-image: linear-gradient( to right, rgb(164, 37, 28) 0%, rgb(203, 130, 35) 50%, rgb(117, 39, 20) 100%);
+    box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+    border: 2px solid rgb(164, 89, 28);
+    display: inline-block;
+}
+
+.eliminar:hover {
+    background: #a4211c;
+}
+
+.eliminar:active {
+    background: #751714;
+}
+
+.agregar {
+    margin-left: 10px;
+    color: black/*  #a4430b */
+    ;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 6px;
+    border-radius: 10px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-image: linear-gradient( to right, rgb(16, 109, 3) 0%, rgb(56, 228, 13) 50%, rgb(16, 109, 3) 100%);
+    box-shadow: rgb(253, 252, 252) 5px 5px 15px 5px;
+    border: 2px solid rgb(20, 77, 3);
+    display: inline-block;
+}
+
+.agregar:hover {
+    background: #1ca42e;
+}
+
+.agregar:active {
+    background: #147514;
+}
