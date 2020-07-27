@@ -1,19 +1,35 @@
 body {
     font-family: sans-serif;
     margin: 2%;
-    background-image: url('https://s03.s3c.es/imag/_v0/770x419/0/0/c/Frutas-y-verduras-dentro-de-una-bolsa-de-papel-iStock.jpg');
-    background-size: cover;
+    /* background-image: url('https://s03.s3c.es/imag/_v0/770x419/0/0/c/Frutas-y-verduras-dentro-de-una-bolsa-de-papel-iStock.jpg'); */
+    background-image: url('https://lapequefactoria.files.wordpress.com/2015/06/lista_de_compras.jpg');
+    background-size: 50%;
+    /* padding-top: 20%; */
+    background-position: center top;
     background-repeat: no-repeat;
 }
 
-.titulo {
+
+/* .titulo {
     text-align: center;
     font-size: 34px;
-    color: black;
+    color: #a89667;
+} */
+
+#app3 {
+    margin-top: 22%;
+    align-items: center;
+    text-align: center;
 }
 
-#lista {
-    color: red;
+ul {
+    list-style-type: none;
+}
+
+.item {
+    color: #147514;
+    padding: 5px;
+    font-family: 'Handlee', cursive;
 }
 
 .eliminar {

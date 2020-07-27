@@ -88,57 +88,43 @@ if (app) {
 // Ejercicio 3 crear lista no ordenada
 const app3 = document.getElementById('app3');
 if (app3) {
-    const TODO = ['Queso', 'Tomates', 'Zanahorias', 'Toalla'];
-
-    var newDiv = document.createElement('div');
-    var newContent = document.createTextNode('Lista de compras', { id: 'lista' });
-    newDiv.appendChild(newContent); //añade texto al div creado.
-
-    // añade el elemento creado y su contenido al DOM
-    var currentDiv = document.getElementById('app3');
-    document.body.insertBefore(newDiv, currentDiv);
-    newDiv.className = 'titulo';
+    const TODO = ['QUESO', 'TOMATES', 'ZANAHORIAS', 'TOALLA'];
 
     const ul = document.createElement('ul');
     for (let i = 0; i < TODO.length; i++) {
         const li = document.createElement('li');
         txtLi = document.createTextNode(TODO[i]);
         li.appendChild(txtLi);
+        li.className = 'item';
 
         btnEliminar = document.createElement('button');
         btnEliminar.innerHTML = 'Eliminar';
         btnEliminar.addEventListener('click', () => {
-            console.log('innerHTML ' + li.innerHTML);
-            console.log('innerTeext ' + li.innerText);
             eliminarElemento(li);
         });
         li.appendChild(btnEliminar);
         ul.appendChild(li);
         btnEliminar.className = 'eliminar';
     }
+    /* ul.className = 'ul'; */
 
     app3.appendChild(ul);
-
-    function eliminarElemento(elementoLista) {
-        ul.removeChild(elementoLista);
-        //Elimino el elemento del arreglo
-        let idx = TODO.indexOf(elementoLista);
-        TODO.splice(idx);
-    }
 
     input = document.createElement('input');
     agregar = document.createElement('button');
     agregar.innerHTML = 'Agregar';
     agregar.addEventListener('click', () => {
-        //console.log('value ' + input.value);
-        //console.log('inner');
         agregarLista(input.value);
     });
     app3.appendChild(input);
     app3.appendChild(agregar);
     agregar.className = 'agregar';
+}
 
-    function agregarLista(txtLista) {
+function agregarLista(txtLista) {
+    if (txtLista === '') {
+        window.alert('No se puede cargar un elemento vacio.');
+    } else {
         //Busco si no esta repetido para cargarlo
         if (!TODO.find((element) => element === txtLista)) {
             TODO.push(txtLista);
@@ -149,18 +135,23 @@ if (app3) {
             btnEliminar = document.createElement('button');
             btnEliminar.innerHTML = 'Eliminar';
             btnEliminar.addEventListener('click', () => {
-                console.log('innerHTML ' + li.innerHTML);
-                console.log('innerTeext ' + li.innerText);
                 eliminarElemento(li);
             });
             li.appendChild(btnEliminar);
-
+            li.className = 'item';
             ul.appendChild(li);
             btnEliminar.className = 'eliminar';
         } else {
             window.alert('El elemento ya existe en la lista.');
         }
     }
+}
+
+function eliminarElemento(elementoLista) {
+    ul.removeChild(elementoLista);
+    //Elimino el elemento del arreglo
+    let idx = TODO.indexOf(elementoLista);
+    TODO.splice(idx);
 }
 
 // Ejercicio 4 globos
